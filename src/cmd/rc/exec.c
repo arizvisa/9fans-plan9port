@@ -155,7 +155,7 @@ main(int argc, char *argv[])
 	int i;
 
 	/* needed for rcmain later */
-	putenv("PLAN9", unsharp("#9"));
+	putenv("HOME", unsharp("#9"));
 
 	argc = getflags(argc, argv, "DSYsrdiIlxepvVc:1m:1[command]", 1);
 	if(argc==-1)

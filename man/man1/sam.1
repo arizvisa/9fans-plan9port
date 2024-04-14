@@ -426,10 +426,15 @@ and all file names in the list are examined.
 Print a menu of files.
 The format is:
 .RS
-.TP 11
-.BR ' " or blank
-indicating the file is modified or clean,
-.TP 11
+.\" .TP 11
+.\" .BR ' " or blank"
+.\" indicating the file is modified or clean,
+.TP 16
+.BR ' " or blank or " ?
+indicating the file is modified, clean, or modified,
+but unnamed (and unwritable).
+.\" .TP 11
+.TP 16
 .BR - " or \&" +
 indicating the file is unread or has been read
 (in the terminal,

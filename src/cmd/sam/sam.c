@@ -442,8 +442,14 @@ filename(File *f)
 	if(genc)
 		free(genc);
 	genc = Strtoc(&genstr);
+#if 0
 	dprint("%c%c%c %s\n", " '"[f->mod],
 		"-+"[f->rasp!=0], " ."[f==curfile], genc);
+#else
+	/* we emit "?" for unnamed+modified to still allow matching */
+	dprint("%c%c%c %s\n", (*genc ==0)? " ?"[f->mod] : " '"[f->mod],
+		"-+"[f->rasp!=0], " ."[f==curfile], genc);
+#endif
 }
 
 void

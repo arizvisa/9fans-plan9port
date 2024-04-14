@@ -61,5 +61,10 @@ typedef enum Warn{
 	Wnulls,
 	Wpwd,
 	Wnotnewline,
+#if 0
 	Wbadstatus
+#else
+	Wbadstatus,
+	Wnoname
+#endif
 }Warn;

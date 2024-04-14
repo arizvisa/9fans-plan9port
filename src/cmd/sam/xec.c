@@ -286,8 +286,17 @@ w_cmd(File *f, Cmd *cp)
 	int fseq;
 
 	fseq = f->seq;
+#if 0
 	if(getname(f, cp->ctext, FALSE)==0)
 		error(Enoname);
+#else
+	/* we don't abort, we just issue a warning. */
+	if(getname(f, cp->ctext, FALSE)==0){
+		dprint("%s: ", "");
+		warn(Wnoname);
+		return TRUE;
+	}
+#endif
 	if(fseq == seq)
 		error_s(Ewseq, genc);
 	writef(f);
@@ -498,6 +507,12 @@ filelooper(Cmd *cp, int XY)
 		f = tempfile.filepptr[i];
 		if(f==cmd)
 			continue;
+#if 0
+		if(getname(f, NULL, FALSE)==0){	/* skip unnamed buffer */
+			dprint("skipping unnamed buffer\n");
+			continue;
+		}
+#endif
 		if(cp->re==0 || filematch(f, cp->re)==XY)
 			cmdexec(f, cp->ccmd);
 	}

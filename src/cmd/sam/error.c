@@ -63,7 +63,12 @@ static char *wmsg[]={
 	"null characters elided",
 	"can't run pwd",
 	"last char not newline",
+#if 0
 	"exit status not 0"
+#else
+	"exit status not 0",
+	"buffer unnamed"
+#endif
 };
 
 void
